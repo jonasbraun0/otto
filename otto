@@ -1,0 +1,49 @@
+#!/usr/local/bin/python3
+
+# Standard modules
+import argparse
+
+# Project defined modules
+#import .benchmark
+#import .test
+#import .config
+#import .system_info
+import logger
+
+def run_command(cfg, args):
+    if (args.command == "benchmark"):
+    	benchmark.run(cfg, args)
+    elif (args.command == "test"):
+    	test.run(cfg, args)
+    elif (args.command == "list_tests"):
+    	list_tests.run(cfg, args)
+    else:
+    	print("Invalid command")
+
+def verify_args(cfg, args):
+    print("verifying args")
+
+def get_args():
+    parser = argparse.ArgumentParser(description='Test arg parse')
+    parser.add_argument('command', nargs='?',  help='This is the command')
+    parser.add_argument('--testname', help='This is test to run')
+    parser.add_argument('--client', help='Where do you want the test to run?')
+
+    args = parser.parse_args()
+
+    return args
+
+def main():
+    logger.dump_logs()
+
+    return
+#    args = get_args()
+#    cfg = config.parse()
+#    sysinfo = system_info.get()
+#
+#    verify_args(cfg, args)
+#
+#    run_command(cfg, args)
+
+if __name__ == "__main__":
+    main()

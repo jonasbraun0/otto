@@ -1,0 +1,11 @@
+#!/bin/sh
+
+packages=(
+	gcc
+	something-dev
+	openssl-dev
+)
+
+for package in ${packages[@]}; do
+	zypper install ${package}
+done
